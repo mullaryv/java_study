@@ -1,4 +1,5 @@
-//import java.util.Hash;
+import MyLibrary.*;
+
 import java.util.HashSet;
 
 public class MyQuestion {
