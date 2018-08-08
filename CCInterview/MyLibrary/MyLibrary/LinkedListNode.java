@@ -5,6 +5,12 @@ public class LinkedListNode {
     public LinkedListNode prev = null;
     public LinkedListNode next = null;
 
+    public LinkedListNode () { }
+
+    public LinkedListNode (int d) {
+        data = d;
+    }
+
     public LinkedListNode (int d, LinkedListNode prev, LinkedListNode next) {
         data = d;
         this.prev = prev;
@@ -38,23 +44,23 @@ public class LinkedListNode {
     }
 
     public void add (int d) {
-      LinkedListNode current = this;
-      while (current.next != null) {
-        current = current.next;
-      } 
-      LinkedListNode node = new LinkedListNode (d, current, null);
-      current.next = node;
+        LinkedListNode current = this;
+        while (current.next != null) {
+          current = current.next;
+        } 
+        LinkedListNode node = new LinkedListNode (d, current, null);
+        current.next = node;
     }
 
     public String printForward () {
-      StringBuffer sb = new StringBuffer ();
-      LinkedListNode current = this;
-      while (current != null) {
-        sb.append (current.data);
-        current = current.next;
-        if (current != null)
-          sb.append("->");  
-      }
-      return sb.toString();
+        StringBuffer sb = new StringBuffer ();
+        LinkedListNode current = this;
+        while (current != null) {
+            sb.append (current.data);
+            current = current.next;
+            if (current != null)
+                sb.append("->");  
+        }
+        return sb.toString();
     }
 }
