@@ -27,7 +27,7 @@ public class MyQuestion {
   }
 
 
-  // recursive
+  // recursive: doesn't return, just prints
   public static int printKthToLastB (LinkedListNode n, int k) {
     if (n == null) return 0;
 
@@ -37,6 +37,36 @@ public class MyQuestion {
       System.out.println (k + ":   " + n.data);
     } 
     return num;
+  }
+
+
+  // recursive: returns the node
+  static class Counter {
+    public int cnt;
+    public Counter () {
+      cnt = 0;
+    }
+  }
+
+  public static LinkedListNode nToLastRecursive (LinkedListNode n, int k, Counter c) {
+    if (n == null) return null;
+    LinkedListNode current = nToLastRecursive (n.next, k, c);
+
+    c.cnt++;
+    if (c.cnt == k) {
+      return n;
+    } 
+    
+//    System.out.println (current == null ? "null" : "" + current.data);
+    return current;
+  }
+
+
+  public static void printKthToLastC (LinkedListNode n, int k) {
+    MyQuestion.Counter counter = new MyQuestion.Counter ();
+    LinkedListNode node = nToLastRecursive (n, k, counter);
+    String nodeValue = node == null ? "null" : "" + node.data;
+    System.out.println (k + " to last is " + nodeValue);
   }
 
 
@@ -55,6 +85,13 @@ public class MyQuestion {
       printKthToLastB (head, i);
     }
 
+    System.out.println ("\nrecursion with counter class:");
+//    printKthToLastC (head, 4);
+    for (int i = 0; i <= array.length + 1; i++) {
+      printKthToLastC (head, i);
+    }
+
+    System.out.println ();
     System.out.println (head.printForward ());
   }
 }
