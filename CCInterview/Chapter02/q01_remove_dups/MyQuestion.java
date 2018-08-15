@@ -1,5 +1,4 @@
-import MyLibrary.*;
-
+import MyLibrary.LinkedListNode;
 import java.util.HashSet;
 
 public class MyQuestion {
@@ -93,7 +92,6 @@ public class MyQuestion {
 			second.setPrevious(first);
 			first = second;
 		}
-//		System.out.println(head.printForward());
 
 head.add (10); 
 head.add (20);
@@ -112,8 +110,10 @@ head.add (1);
 head.add (1);
 head.add (0);
 
+		System.out.println("head:   " + head.printForward());
 
 		LinkedListNode cloneA = head.clone();
+		System.out.println("CloneA: " + cloneA.printForward());
 		deleteDupsC(cloneA);
 		System.out.println(cloneA.printForward());
 
@@ -124,7 +124,6 @@ head.add (0);
 //		for (Integer h : hashNodes) {
 //          System.out.print (h.toString() + " ");
 //        }
-
 		
 	}
 

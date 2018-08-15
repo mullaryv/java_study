@@ -1,6 +1,6 @@
 //package Q2_01_Remove_Dups;
 
-//import CtCILibrary.LinkedListNode;
+import MyLibrary.LinkedListNode;
 
 public class MyTester {
 
@@ -9,8 +9,8 @@ public class MyTester {
 		LinkedListNode first = new LinkedListNode(0, null, null);
 		LinkedListNode head = first;
 		LinkedListNode second = first;
-		for (int i = 1; i < 8; i++) {
-			second = new LinkedListNode(i % 2, null, null);
+		for (int i = 1; i < 20; i++) {
+			second = new LinkedListNode(i % 3, null, null);
 			first.setNext(second);
 			second.setPrevious(first);
 			first = second;
@@ -39,9 +39,6 @@ head.add (1);
 		MyQuestion.deleteDupsB(cloneB);
 		MyQuestion.deleteDupsC(cloneC);
 
-//		QuestionA.deleteDups(cloneA);
-//		QuestionA.deleteDups(cloneB);
-//		QuestionA.deleteDups(cloneC);
         head.add (9);
 		System.out.println(head.printForward());
 		
