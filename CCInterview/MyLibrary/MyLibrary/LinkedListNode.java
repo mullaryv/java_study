@@ -24,7 +24,7 @@ public class LinkedListNode {
 
     public void setPrevious (LinkedListNode p) {
         prev = p;
-        if ((p != null) && (this != p.next)) 
+        if ((p != null) && (this != p.next))
           p.setNext (this);
     }
 
