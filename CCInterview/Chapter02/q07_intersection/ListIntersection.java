@@ -29,30 +29,20 @@ public class ListIntersection {
             return null;
         } 
 
-        if (s1 < s2) {
-            first = li2;
-            second = li1;
-        } else {
-            first = li1;
-            second = li2;
-        } 
-
-        int diff = s1 - s2;
-        if (diff < 0) diff = -diff;
+        first = (s1 < s2) ? li2 : li1;
+        second = (s1 < s2) ? li1 : li2;
+        int diff = (s1 < s2) ? s2 - s1 : s1 - s2;
 
         for (int i=0; i<diff; i++) {
            first = first.next;
         }
 
         // now they are aligned.
-        while (first != null) {
-            if (first == second) {
-                return first;
-            }
+        while (first != second) {
             first = first.next;
             second = second.next;
         }
-        return null;          
+        return first;
     }
 
 
@@ -63,17 +53,21 @@ public class ListIntersection {
 
         LinkedListNode list1 = AssortedMethods.createLinkedListFromArray(vals);
         LinkedListNode list2 = AssortedMethods.createLinkedListFromArray(vals2);
-
-        // make intersection        
-//        list2.next.next = list1.next.next.next.next;
-//        list2.next.next = list1.next.next.next.next.next.next.next.next.next.next;        
-
         System.out.println(list1.printForward());
         System.out.println(list2.printForward());
-        
+
         LinkedListNode res = findIntersection(list1, list2);
-        
-        System.out.println ("res: " + ((res == null) ? "null" : res.printForward()));
+        System.out.println ("res-0: " + ((res == null) ? "null" : res.printForward()));
+
+        // make intersection        
+        list2.next.next = list1.next.next.next.next;
+        res = findIntersection(list1, list2);
+        System.out.println ("res-1: " + ((res == null) ? "null" : res.printForward()));
+
+        list2.next.next = list1.next.next.next.next.next.next.next.next.next.next;        
+        res = findIntersection(list1, list2);
+        System.out.println ("res-2: " + ((res == null) ? "null" : res.printForward()));
+
     }
 
 }
