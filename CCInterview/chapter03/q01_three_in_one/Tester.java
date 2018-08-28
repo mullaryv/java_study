@@ -9,6 +9,8 @@ public class Tester {
 
 	public static void questionA() throws Exception  {
 		FixedMultiStack stacks = new FixedMultiStack(4);
+        int d = 0;
+
 		printStacks(stacks);
 		stacks.push(0, 10);
 		printStacks(stacks);
@@ -24,8 +26,11 @@ public class Tester {
 		stacks.push(0, 12);
 		printStacks(stacks);
 		
-		stacks.pop(0);
+		d = stacks.pop(0);
+//System.out.println ("d: " + d);
 		printStacks(stacks);
+		d = stacks.pop(0);
+		d = stacks.pop(0);
 		
 		stacks.push(2, 31);
 		printStacks(stacks);

@@ -28,8 +28,10 @@ public class FixedMultiStack {
             throw new EmptyStackException ("Stack [" + num + "] is empty"); 
         }
 
-        int data = storage[num*capacity + sizes[num]];
-        storage[num*capacity + sizes[num]] = 0; //strictly speaking, not required
+        int index = num*capacity + sizes[num] - 1;
+        int data = storage[index];
+//System.out.println ("pop: n="+ num + ",  sizes[n]=" + sizes[num] + ",  index: " + index);
+        storage[index] = 0; //strictly speaking, not required
         sizes[num] -= 1;
         return data;
     }
