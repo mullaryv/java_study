@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class AssortedMethods {
 
-  public static LinkedListNode createLinkedListFromArray (int[] arr) {
+    public static LinkedListNode createLinkedListFromArray (int[] arr) {
     if (arr == null) return null;
  
     LinkedListNode head = new LinkedListNode(arr[0]);
@@ -56,4 +56,18 @@ public class AssortedMethods {
     return head;
   }
 
+
+  public static String arrayToString(int[] arr) {
+    if ((arr == null) || (arr.length == 0))
+      return "";
+
+    int len = arr.length;
+    StringBuffer sb = new StringBuffer();
+    sb.append(arr[0]); 
+    for (int i=1; i<len; i++) {
+      sb.append(", ");
+      sb.append(arr[i]);
+    }
+    return sb.toString();
+  }
 }

@@ -1,22 +1,7 @@
+import MyLibrary.AssortedMethods;
+
+
 public class RotateArray {
-
-
-    public static String printArray (int[] arr) {
-        if (arr == null)
-            return null;
-        int len = arr.length;
-        if (len == 0)
-            return "";
-
-        StringBuffer sb = new StringBuffer();
-        sb.append(arr[0]);
-        for (int i=1; i<len; i++) {
-            sb.append(", ");
-            sb.append (arr[i]);
-        }
-        return sb.toString();
-    }
-
 
     public static void rotateArray (int[] arr, int r) {
         // some precautions first
@@ -67,16 +52,16 @@ public class RotateArray {
     public static void main(String[] args) {
 
         int[] a = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
-        String s = printArray (a);
+        String s = AssortedMethods.arrayToString(a);  
         System.out.println (s);
 
 //        rotateArray(a, 4);
-//        System.out.println ("a: " + printArray (a));
+//        System.out.println ("a: " + AssortedMethods.arrayToString (a));
 
         for (int i=0; i<20; i++) {
             int[] b = a.clone();
             rotateArray(b, i);
-            System.out.println ("i=" + i + ": " + printArray (b));
+            System.out.println ("i=" + i + ": " + AssortedMethods.arrayToString (b));
         }
     }
 
