@@ -70,4 +70,10 @@ public class AssortedMethods {
     }
     return sb.toString();
   }
+
+
+    public static int randomIntInRange(int from, int to) {
+        int r = (int) (Math.random() * (to - from + 1));
+        return from + r;
+    }
 }
