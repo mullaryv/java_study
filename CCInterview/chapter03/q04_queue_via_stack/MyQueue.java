@@ -1,20 +1,21 @@
 import java.util.Stack;
 //import java.lang.Integer;
 
-public class MyQueue<Integer> {
 
-    private Stack<Integer> s1, s2; //one to accept and another to return
+public class MyQueue<T> {
+
+    private Stack<T> s1, s2; //one to accept and another to return
 
     public MyQueue() {
-        s1 = new Stack<Integer>();
-        s2 = new Stack<Integer>();
+        s1 = new Stack<T>();
+        s2 = new Stack<T>();
     }
 
-    public void add(Integer value) {
+    public void add(T value) {
         s1.push(value);
     }
 
-    public Integer remove() {
+    public T remove() {
         copyStack();
         return s2.pop();
     }
@@ -23,7 +24,7 @@ public class MyQueue<Integer> {
         return s1.size() + s2.size();
     }
 
-    public Integer peek() {
+    public T peek() {
         copyStack();
         return s2.peek();
     }
