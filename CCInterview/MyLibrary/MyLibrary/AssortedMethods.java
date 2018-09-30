@@ -83,35 +83,60 @@ public class AssortedMethods {
     }
 
     // copy from the book
-	public static void printMatrix(int[][] matrix) {
-		for (int i = 0; i < matrix.length; i++) {
-			for (int j = 0; j < matrix[i].length; j++) {
-				if (matrix[i][j] < 10 && matrix[i][j] > -10) {
-					System.out.print(" ");
-				}
-				if (matrix[i][j] < 100 && matrix[i][j] > -100) {
-					System.out.print(" ");
-				}
-				if (matrix[i][j] >= 0) {
-					System.out.print(" ");
-				}
-				System.out.print(" " + matrix[i][j]);
-			}
-			System.out.println();
-		}
-	}
+    public static void printMatrix(int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                if (matrix[i][j] < 10 && matrix[i][j] > -10) {
+                    System.out.print(" ");
+                }
+                if (matrix[i][j] < 100 && matrix[i][j] > -100) {
+                    System.out.print(" ");
+                }
+                if (matrix[i][j] >= 0) {
+                    System.out.print(" ");
+                }
+                System.out.print(" " + matrix[i][j]);
+            }
+            System.out.println();
+        }
+    }
 
 
     // copy from the book
-	public static int[][] randomMatrix(int M, int N, int min, int max) {
-		int[][] matrix = new int[M][N];
-		for (int i = 0; i < M; i++) {
-			for (int j = 0; j < N; j++) {
-				matrix[i][j] = randomIntInRange(min, max);
-			}
-		}
-		return matrix;
-	}
+    public static int[][] randomMatrix(int M, int N, int min, int max) {
+        int[][] matrix = new int[M][N];
+        for (int i = 0; i < M; i++) {
+            for (int j = 0; j < N; j++) {
+                matrix[i][j] = randomIntInRange(min, max);
+            }
+        }
+        return matrix;
+    }
 
 
+    public static boolean matricesAreEqual(int[][] m1, int[][] m2) {
+        if (m1.length != m2.length || m1[0].length != m2[0].length) {
+            return false;
+        }
+        
+        for (int k = 0; k < m1.length; k++) {
+            for (int j = 0; j < m1[0].length; j++) {
+                if (m1[k][j] != m2[k][j]) {
+                    return false;
+                }
+            }
+        }    
+        return true;
+    }
+
+    
+    public static int[][] cloneMatrix(int[][] matrix) {
+        int[][] c = new int[matrix.length][matrix[0].length];
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                c[i][j] = matrix[i][j];
+            }
+        }
+        return c;
+    }
 }
