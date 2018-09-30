@@ -15,37 +15,31 @@ public class AssortedMethods {
     }
 
 
+    public static String intArrayToString (int[] array) {
+        StringBuilder buffer = new StringBuilder(array.length);
+        for (int c : array) {
+            buffer.append(c);
+            buffer.append(' ');
+        }
+        return buffer.toString();
+    }
+
+
     public static LinkedListNode createLinkedListFromArray (int[] arr) {
-    if (arr == null) return null;
+        if (arr == null) return null;
  
-    LinkedListNode head = new LinkedListNode(arr[0]);
-    LinkedListNode current = head;
+        LinkedListNode head = new LinkedListNode(arr[0]);
+        LinkedListNode current = head;
 
-    for (int i=1; i < arr.length; i++) {
-      //current.next = new LinkedListNode (arr[i]);
-      current.setNext (new LinkedListNode (arr[i]));
-      current = current.next;
+        for (int i=1; i < arr.length; i++) {
+             //current.next = new LinkedListNode (arr[i]);
+            current.setNext (new LinkedListNode (arr[i]));
+            current = current.next;
+        }
+        return head;
+
     }
-    return head;
 
-/*
-    LinkedListNode head = null;
-    LinkedListNode prev = null;
-
-    for (int i=arr.length-1; i>=0; i--) {
-      String t="prev: null";
-      if (prev != null)
-        t = "prev: " + prev.data;
-
-      head = new LinkedListNode (arr[i]);
-//System.out.println("i: " + i + ",  head: " + head.data);
-//System.out.println("       " + t);
-      head.setNext (prev); // this will also set head as "previous" to prev  
-      prev = head;
-    }
-    return head;
-*/
-  }
 
   public static LinkedListNode randomLinkedList (int amount, int from, int to) {
     // can just create an array of randoms and then call createLinkedListFromArray method
